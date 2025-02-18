@@ -169,7 +169,7 @@ class HSVWithValueColorPainter extends CustomPainter {
     canvas.drawRect(rect, Paint()..shader = gradientV.createShader(rect));
     canvas.drawRect(
       rect,
-      Paint()..color = Colors.black.withOpacity(1 - hsvColor.value),
+      Paint()..color = Colors.black.withValues(alpha: 1 - hsvColor.value),
     );
 
     canvas.drawCircle(
@@ -325,14 +325,16 @@ class HSLWithLightnessColorPainter extends CustomPainter {
     canvas.drawRect(
       rect,
       Paint()
-        ..color =
-            Colors.black.withOpacity((1 - hslColor.lightness * 2).clamp(0, 1)),
+        ..color = Colors.black.withValues(
+          alpha: (1 - hslColor.lightness * 2).clamp(0, 1),
+        ),
     );
     canvas.drawRect(
       rect,
       Paint()
-        ..color = Colors.white
-            .withOpacity(((hslColor.lightness - 0.5) * 2).clamp(0, 1)),
+        ..color = Colors.white.withValues(
+          alpha: ((hslColor.lightness - 0.5) * 2).clamp(0, 1),
+        ),
     );
 
     canvas.drawCircle(
@@ -531,7 +533,7 @@ class HUEColorWheelPainter extends CustomPainter {
     canvas.drawCircle(
         center, radio, Paint()..shader = gradientR.createShader(rect));
     canvas.drawCircle(center, radio,
-        Paint()..color = Colors.black.withOpacity(1 - hsvColor.value));
+        Paint()..color = Colors.black.withValues(alpha: 1 - hsvColor.value));
 
     canvas.drawCircle(
       Offset(
@@ -723,32 +725,32 @@ class TrackPainter extends CustomPainter {
         break;
       case TrackType.red:
         final List<Color> colors = [
-          hsvColor.toColor().withRed(0).withOpacity(1.0),
-          hsvColor.toColor().withRed(255).withOpacity(1.0),
+          hsvColor.toColor().withRed(0).withValues(alpha: 1.0),
+          hsvColor.toColor().withRed(255).withValues(alpha: 1.0),
         ];
         Gradient gradient = LinearGradient(colors: colors);
         canvas.drawRect(rect, Paint()..shader = gradient.createShader(rect));
         break;
       case TrackType.green:
         final List<Color> colors = [
-          hsvColor.toColor().withGreen(0).withOpacity(1.0),
-          hsvColor.toColor().withGreen(255).withOpacity(1.0),
+          hsvColor.toColor().withGreen(0).withValues(alpha: 1.0),
+          hsvColor.toColor().withGreen(255).withValues(alpha: 1.0),
         ];
         Gradient gradient = LinearGradient(colors: colors);
         canvas.drawRect(rect, Paint()..shader = gradient.createShader(rect));
         break;
       case TrackType.blue:
         final List<Color> colors = [
-          hsvColor.toColor().withBlue(0).withOpacity(1.0),
-          hsvColor.toColor().withBlue(255).withOpacity(1.0),
+          hsvColor.toColor().withBlue(0).withValues(alpha: 1.0),
+          hsvColor.toColor().withBlue(255).withValues(alpha: 1.0),
         ];
         Gradient gradient = LinearGradient(colors: colors);
         canvas.drawRect(rect, Paint()..shader = gradient.createShader(rect));
         break;
       case TrackType.alpha:
         final List<Color> colors = [
-          hsvColor.toColor().withOpacity(0.0),
-          hsvColor.toColor().withOpacity(1.0),
+          hsvColor.toColor().withValues(alpha: 0.0),
+          hsvColor.toColor().withValues(alpha: 1.0),
         ];
         Gradient gradient = LinearGradient(colors: colors);
         canvas.drawRect(rect, Paint()..shader = gradient.createShader(rect));
@@ -1173,20 +1175,20 @@ class ColorPickerSlider extends StatelessWidget {
           break;
         case TrackType.red:
           thumbOffset += (box.maxWidth - 30.0) * hsvColor.toColor().red / 0xff;
-          thumbColor = hsvColor.toColor().withOpacity(1.0);
+          thumbColor = hsvColor.toColor().withValues(alpha: 1.0);
           break;
         case TrackType.green:
           thumbOffset +=
               (box.maxWidth - 30.0) * hsvColor.toColor().green / 0xff;
-          thumbColor = hsvColor.toColor().withOpacity(1.0);
+          thumbColor = hsvColor.toColor().withValues(alpha: 1.0);
           break;
         case TrackType.blue:
           thumbOffset += (box.maxWidth - 30.0) * hsvColor.toColor().blue / 0xff;
-          thumbColor = hsvColor.toColor().withOpacity(1.0);
+          thumbColor = hsvColor.toColor().withValues(alpha: 1.0);
           break;
         case TrackType.alpha:
           thumbOffset += (box.maxWidth - 30.0) * hsvColor.toColor().opacity;
-          thumbColor = hsvColor.toColor().withOpacity(hsvColor.alpha);
+          thumbColor = hsvColor.toColor().withValues(alpha: hsvColor.alpha);
           break;
       }
 

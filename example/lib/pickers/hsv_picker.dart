@@ -118,7 +118,7 @@ class _HSVColorPickerExampleState extends State<HSVColorPickerExample> {
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.pickerColor,
-                shadowColor: widget.pickerColor.withOpacity(1),
+                shadowColor: widget.pickerColor.withValues(alpha: 1),
                 elevation: 10,
               ),
             ),
@@ -162,7 +162,7 @@ ColorPicker(
                       : Colors.black),
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.pickerColor,
-                shadowColor: widget.pickerColor.withOpacity(1),
+                shadowColor: widget.pickerColor.withValues(alpha: 1),
                 elevation: 10,
               ),
             ),
@@ -307,7 +307,7 @@ ColorPicker(
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.pickerColor,
-                shadowColor: widget.pickerColor.withOpacity(1),
+                shadowColor: widget.pickerColor.withValues(alpha: 1),
                 elevation: 10,
               ),
             ),
@@ -340,7 +340,7 @@ HueRingPicker(
                       : Colors.black),
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.pickerColor,
-                shadowColor: widget.pickerColor.withOpacity(1),
+                shadowColor: widget.pickerColor.withValues(alpha: 1),
                 elevation: 10,
               ),
             ),
@@ -400,7 +400,7 @@ HueRingPicker(
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.pickerColor,
-                shadowColor: widget.pickerColor.withOpacity(1),
+                shadowColor: widget.pickerColor.withValues(alpha: 1),
                 elevation: 10,
               ),
             ),
@@ -437,7 +437,7 @@ SlidePicker(
                       : Colors.black),
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.pickerColor,
-                shadowColor: widget.pickerColor.withOpacity(1),
+                shadowColor: widget.pickerColor.withValues(alpha: 1),
                 elevation: 10,
               ),
             ),
@@ -573,7 +573,7 @@ SlidePicker(
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.pickerColor,
-                shadowColor: widget.pickerColor.withOpacity(1),
+                shadowColor: widget.pickerColor.withValues(alpha: 1),
                 elevation: 10,
               ),
             ),
@@ -631,13 +631,15 @@ Column(
                   },
                 );
               },
-              child: Icon(Icons.code,
-                  color: useWhiteForeground(widget.pickerColor)
-                      ? Colors.white
-                      : Colors.black),
+              child: Icon(
+                Icons.code,
+                color: useWhiteForeground(widget.pickerColor)
+                    ? Colors.white
+                    : Colors.black,
+              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.pickerColor,
-                shadowColor: widget.pickerColor.withOpacity(1),
+                shadowColor: widget.pickerColor.withValues(alpha: 1),
                 elevation: 10,
               ),
             ),
